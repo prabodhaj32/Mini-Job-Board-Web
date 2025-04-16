@@ -1,94 +1,40 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-white text-gray-800 flex flex-col">
+      <header className="bg-blue-600 text-white px-6 py-4 shadow-md">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-xl font-bold">🧑‍💼 Job Board</h1>
+          <nav className="space-x-4">
+            <Link href="/login" className="hover:underline">Login</Link>
+            <Link href="/register" className="hover:underline">Register</Link>
+            <Link href="/dashboard" className="hover:underline">Admin</Link>
+          </nav>
+        </div>
+      </header>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+      <main className="flex-grow container mx-auto flex flex-col justify-center items-center px-4 text-center">
+        <h2 className="text-4xl font-bold mb-4">Find Your Dream Job</h2>
+        <p className="text-lg text-gray-600 mb-6">
+          Browse opportunities or post a job — it's quick and easy.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/register" className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">
+            Register
+          </Link>
+          <Link href="/login" className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition">
+            Login
+          </Link>
+          <Link href="/dashboard" className="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-900 transition">
+            Admin Dashboard
+          </Link>
         </div>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="bg-gray-100 py-4 text-center text-sm text-gray-500 border-t">
+        Built with <span className="font-semibold">Next.js</span> & TailwindCSS — © {new Date().getFullYear()}
       </footer>
     </div>
   );

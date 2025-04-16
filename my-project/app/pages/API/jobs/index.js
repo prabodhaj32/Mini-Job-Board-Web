@@ -1,22 +1,18 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '@/lib/prisma';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
-    const jobs = await prisma.job.findMany();
-    res.status(200).json(jobs);
-  } else if (req.method === 'POST') {
-    const { title, company, location, jobType, description } = req.body;
-    const job = await prisma.job.create({
-      data: {
-        title,
-        company,
-        location,
-        jobType,
-        description,
-      },
+    const { location, jobType, page = 1 } = req.query;
+    const filters = {};
+    if (location) filters.location = location;
+    if (jobType) filters.jobType = jobType;
+
+    const jobs = await prisma.job.findMany({
+      where: filters,
+      take: 5,
+      skip: (page - 1) * 5,
+      orderBy: { createdAt: 'desc' },
     });
-    res.status(201).json(job);
+    res.json(jobs);
   }
 }
