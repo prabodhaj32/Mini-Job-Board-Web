@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
+    "cookie": "^1.0.2",
     "jsonwebtoken": "^9.0.2",
     "next": "15.3.0",
     "next-auth": "^4.24.11",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.1",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
@@ -28,6 +30,6 @@
     "postcss": "^8.4.35",
     "prisma": "^6.6.0",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.4.5"
+    "typescript": "^5.8.3"
   }
 }
