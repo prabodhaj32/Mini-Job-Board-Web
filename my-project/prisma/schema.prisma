@@ -9,25 +9,28 @@ datasource db {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  email    String  @unique
+   id       Int    @id @default(autoincrement())
+  email    String @unique
   password String
   isAdmin  Boolean @default(false)
-  jobs     Job[]   // One-to-many relationship
+  jobs     Job[]  // One-to-many relationship
 
   @@map("users")
 }
 
 model Job {
-  id          Int      @id @default(autoincrement())
+    id          Int      @id @default(autoincrement())
   title       String
   company     String
   location    String
-  type        String  // Should match the field name used here
+  type        String   // ✅ This should match the jobType from the front-end
   description String
   userId      Int
-  user        User    @relation(fields: [userId], references: [id])
   createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id])
 
   @@map("jobs")
 }
+
+
