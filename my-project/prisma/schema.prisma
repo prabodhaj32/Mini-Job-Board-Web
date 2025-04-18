@@ -1,22 +1,21 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma" // Ensure this output path exists in your project
+  output   = "../app/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL") // Ensure DATABASE_URL is set in your .env file
+  url      = env("DATABASE_URL")
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
   password String
   isAdmin  Boolean @default(false)
-  jobs     Job[]  // Relation with Job model
+  jobs     Job[]   // One-to-many relationship
 
-  // Ensure that this is the table name you want in the DB if you want snake_case
-  @@map("users") // Optional: If your table is named 'users' in the DB
+  @@map("users")
 }
 
 model Job {
@@ -24,12 +23,11 @@ model Job {
   title       String
   company     String
   location    String
-  type        String
+  type        String  // Should match the field name used here
   description String
-  userId      Int      // Foreign key for User
-  user        User     @relation(fields: [userId], references: [id])
-  createdAt   DateTime @default(now()) // Automatically set the creation time
+  userId      Int
+  user        User    @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
 
-  // If you want snake_case column names, use @map on the fields
-  @@map("jobs") // Optional: If your table is named 'jobs' in the DB
+  @@map("jobs")
 }

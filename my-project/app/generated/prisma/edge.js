@@ -161,16 +161,17 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:1234@localhost:5432/jobbord?schema=public"
+        "value": null
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../app/generated/prisma\" // Ensure this output path exists in your project\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\") // Ensure DATABASE_URL is set in your .env file\n}\n\nmodel User {\n  id       Int     @id @default(autoincrement())\n  email    String  @unique\n  password String\n  isAdmin  Boolean @default(false)\n  jobs     Job[] // Relation with Job model\n\n  // Ensure that this is the table name you want in the DB if you want snake_case\n  @@map(\"users\") // Optional: If your table is named 'users' in the DB\n}\n\nmodel Job {\n  id          Int      @id @default(autoincrement())\n  title       String\n  company     String\n  location    String\n  type        String\n  description String\n  userId      Int // Foreign key for User\n  user        User     @relation(fields: [userId], references: [id])\n  createdAt   DateTime @default(now()) // Automatically set the creation time\n\n  // If you want snake_case column names, use @map on the fields\n  @@map(\"jobs\") // Optional: If your table is named 'jobs' in the DB\n}\n",
-  "inlineSchemaHash": "6678fe425628a9ee770f0aaa78dde971ec5d17646baed9d9396f36cee197822e",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../app/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id       Int     @id @default(autoincrement())\n  email    String  @unique\n  password String\n  isAdmin  Boolean @default(false)\n  jobs     Job[] // One-to-many relationship\n\n  @@map(\"users\")\n}\n\nmodel Job {\n  id          Int      @id @default(autoincrement())\n  title       String\n  company     String\n  location    String\n  type        String // <- field named 'type', must match your frontend\n  description String\n  userId      Int\n  user        User     @relation(fields: [userId], references: [id])\n  createdAt   DateTime @default(now())\n\n  @@map(\"jobs\")\n}\n",
+  "inlineSchemaHash": "318077742caa39fec9fe01025f1349e7cc5bda7b693d6e4575ae9176be4f4399",
   "copyEngine": true
 }
 config.dirname = '/'
