@@ -1,4 +1,3 @@
-// app/api/jobs/route.ts
 
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
@@ -22,21 +21,20 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-
     const { title, company, location, jobType, description } = body;
 
     if (!title || !company || !location || !jobType || !description) {
       return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
     }
 
-    const userId = 1; // Replace with dynamic user ID if auth is used
+    const userId = 1; 
 
     const job = await prisma.job.create({
       data: {
         title,
         company,
         location,
-        type: jobType, // Make sure 'type' is the field name in your Prisma schema
+        type: jobType,
         description,
         userId,
       },

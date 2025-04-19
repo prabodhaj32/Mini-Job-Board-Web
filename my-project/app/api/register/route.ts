@@ -1,4 +1,4 @@
-// --- app/api/register/route.ts ---
+
 import prisma from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
       data: {
         email,
         password: hashedPassword,
-        isAdmin: true, // make all registered users admins
+        isAdmin: true, //  registered users admins
       },
     });
 
