@@ -24,24 +24,30 @@ A mini full-stack job board built with **Next.js (App Router)**, **Prisma**, **P
 - Clean UI with TailwindCSS
 - Logout with cookie clearing and toast notifications
 
+---
+
 🛠️ Setup Instructions---
 
 1. Clone the Repository
 git clone https://github.com/yourusername/job-board.git
 cd job-board
 
-2. Install Dependencies
+---
+
+3. Install Dependencies
 npm install
 
-3. Configure Environment Variables
+---
+
+5. Configure Environment Variables
 Create a .env file:
 DATABASE_URL="postgresql://postgres:1234@localhost:5432/jobbord?schema=public"
 
 
-4. Run Prisma Migration
+6. Run Prisma Migration
 npx prisma migrate dev --name init
 
-5. Start the Development Server
+7. Start the Development Server
 npm run dev
 
 👨‍💻 Admin Credentials (Hardcoded for Testing)
