@@ -41,11 +41,11 @@ export default function Home() {
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">🧑‍💼 Job Board</h1>
           <nav className="space-x-4">
+          <Link href="/register" className="hover:underline">
+              Register
+            </Link>
             <Link href="/login" className="hover:underline">
               Login
-            </Link>
-            <Link href="/register" className="hover:underline">
-              Register
             </Link>
             <Link href="/dashboard" className="hover:underline">
               Admin

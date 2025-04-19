@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from "react";
@@ -26,8 +25,12 @@ export default function LoginPage() {
     }
   };
 
+  const handleGoHome = () => {
+    router.push("/");
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
       <form onSubmit={handleLogin} className="bg-white p-6 rounded shadow-md w-full max-w-sm">
         <h2 className="text-2xl font-bold text-center mb-4">Admin Login</h2>
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
@@ -52,6 +55,13 @@ export default function LoginPage() {
           Login
         </button>
       </form>
+
+      <button
+        onClick={handleGoHome}
+        className="mt-4 text-blue-600 "
+      >
+        Back to Home Page
+      </button>
     </div>
   );
 }

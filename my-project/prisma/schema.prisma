@@ -13,7 +13,7 @@ model User {
   email    String @unique
   password String
   isAdmin  Boolean @default(false)
-  jobs     Job[]  // One-to-many relationship
+  jobs     Job[]  
 
   @@map("users")
 }
@@ -23,7 +23,7 @@ model Job {
   title       String
   company     String
   location    String
-  type        String   // ✅ This should match the jobType from the front-end
+  type        String   
   description String
   userId      Int
   createdAt   DateTime @default(now())
