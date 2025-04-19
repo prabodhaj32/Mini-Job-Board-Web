@@ -95,7 +95,7 @@ export default function Home() {
       </main>
 
       <footer className="bg-gray-100 py-4 text-center text-sm text-gray-500 border-t">
-        Built with <span className="font-semibold">Next.js</span> & TailwindCSS — © {new Date().getFullYear()}
+        Built with  <span className="font-semibold">Next.js</span> & TailwindCSS
       </footer>
     </div>
   );
