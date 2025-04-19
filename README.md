@@ -4,11 +4,6 @@ A mini full-stack job board built with **Next.js (App Router)**, **Prisma**, **P
 
 ---
 
-## 🚀 Live Demo
-
-🔗 [job-board.vercel.app](https://job-board.vercel.app) — *(Replace with your actual link)*
-
----
 
 ## ⚙️ Tech Stack
 
