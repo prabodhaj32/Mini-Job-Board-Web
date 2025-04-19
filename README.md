@@ -20,7 +20,7 @@ A mini full-stack job board built with **Next.js (App Router)**, **Prisma**, **P
 - Admin authentication (Register/email/password)
 - Add new jobs with details like title, company, location, etc.
 - Delete existing job listings
-- Fully responsive and mobile-friendly layout
+- Fully responsive  layout
 - Clean UI with TailwindCSS
 - Logout with cookie clearing and toast notifications
 
