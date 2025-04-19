@@ -52,7 +52,9 @@ npm run dev
 👨‍💻 Admin Credentials (Hardcoded for Testing)
 Email: admin@gmail.com
 Password: admin1234
+
 ---
+
 📂 Folder Structure Overview
 bash
 Copy
@@ -64,14 +66,18 @@ Edit
   └── page.tsx
 /components
 /prisma
+
 ---
+
 📌 Notes
 Make sure PostgreSQL is running locally or use Railway/Supabase for a hosted DB.
 
 The token is stored securely in HTTP-only cookies.
 
 Use Postman or browser dev tools to test JWT-protected routes.
+
 ---
+
 🧑‍🎓 Author
 Name – R.G.Prabodha jayawardhana
 GitHub:https://github.com/prabodhaj32
