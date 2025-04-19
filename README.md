@@ -55,6 +55,11 @@ Password: admin1234
 
 ---
 
+
+
+
+
+
 📂 Folder Structure Overview
 bash
 Copy
@@ -66,6 +71,14 @@ Edit
   └── page.tsx
 /components
 /prisma
+
+
+
+
+
+
+
+
 
 ---
 
